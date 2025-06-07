@@ -35,6 +35,7 @@ async function getCurrentWeather(location) {
             throw new Error(result.error.message);
         }
         
+        // Initializing variables for weather card
         const city = result.location.name;
         const country = result.location.country;
 
@@ -45,6 +46,7 @@ async function getCurrentWeather(location) {
 
         console.log(currentTempInCelcius)
 
+        // HTML Placeholder for API response
         placeholder.innerHTML = `
         <h3>${city}, ${country}</h3>
         <img src="${icon}" alt="${conditionText}">

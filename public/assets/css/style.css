@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+/* Put the card in a section */
 #weather {
     display: flex;
     align-items: center;
@@ -12,6 +13,7 @@
     color: white;
 }
 
+/* Style the card itself */
 .weatherCard {
     background-color: rgb(59, 59, 59);
     display: flex;
@@ -25,12 +27,14 @@
     box-shadow: 0 20px 50px 5px rgba(0, 0, 0, 0.274);
 }
 
+/* Put the items of the nav bar on the left and right */
 .navBar {
     display: flex;
     width: 100%;
     justify-content: space-between;
 }
 
+/* Text Styling */
 h1 {
     font-size: 2rem;
     font-weight: 600;
@@ -50,6 +54,7 @@ img {
     width: 8em;
 }
 
+/* Styling for API div template */
 #weatherInfo {
     display: flex;
     flex-direction: column;
@@ -58,6 +63,7 @@ img {
     align-items: center;
 }
 
+/* Dropdown menu */
 select {
     background-color: transparent;
     color: white;
