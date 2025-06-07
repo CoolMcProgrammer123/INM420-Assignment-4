@@ -2,7 +2,7 @@
 const apiKey = '7c7e36ef01d94161bc2222432252905';
 
 // Selecting Placeholder + Dropdown
-const placeholder = document.querySelector('#weatherinfo');
+const placeholder = document.querySelector('#weatherInfo');
 const dropdown = document.querySelector('#locations');
 
 // When dropdown changes, get weather
@@ -36,20 +36,21 @@ async function getCurrentWeather(location) {
         }
         
         const city = result.location.name;
+        const country = result.location.country;
 
         const currentTempInCelcius = result.current.temp_c;
 
         const icon = result.current.condition.icon;
-        const text = result.current.condition.text;
+        const conditionText = result.current.condition.text;
 
         console.log(currentTempInCelcius)
 
         placeholder.innerHTML = `
-        <p> Right now it's .... </p>
-        <p>${currentTempInCelcius}C in ${city}!</p>
-
-        <img src="${icon}" alt="${text}">
-        <p>${text}</p>
+        <h3>${city}, ${country}</h3>
+        <img src="${icon}" alt="${conditionText}">
+        <h2>${currentTempInCelcius}°C</h2>
+        <p>${conditionText}</p>
+        
     `
     } catch (error) {
         // If there's an error, display popup
