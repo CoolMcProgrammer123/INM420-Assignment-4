@@ -1,82 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
-/* Put the card in a section */
-#weather {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100dvh;
-
+body {
     font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    color: white;
-}
-
-/* Style the card itself */
-.weatherCard {
-    background-color: rgb(59, 59, 59);
+    background-color: white;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 32px;
-    width: 500px;
-    border-radius: 1.5em;
-    margin: 2em;
-    box-shadow: 0 20px 50px 5px rgba(0, 0, 0, 0.274);
 }
 
-/* Put the items of the nav bar on the left and right */
-.navBar {
-    display: flex;
+#dictionary {
     width: 100%;
-    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Text Styling */
+.dictionaryCard {
+    background-color: rgb(68, 68, 68);
+    color: white;
+    padding: 2em;
+    border-radius: 1em;
+    width: 90%;
+    max-width: 500px;
+    margin: 2em;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
 h1 {
     font-size: 2rem;
-    font-weight: 600;
+    margin-bottom: 1em;
 }
 
-h2 {
-    font-size: 4rem;
-}
-
-h3 {
-    font-size: 1.5rem;
-    text-align: center;
-    line-height: 1.6rem;
-}
-
-img {
-    width: 8em;
-}
-
-/* Styling for API div template */
-#weatherInfo {
-    display: flex;
-    flex-direction: column;
-    margin: 32px;
-    margin-bottom: 16px;
-    align-items: center;
-}
-
-/* Dropdown menu */
-select {
-    background-color: transparent;
-    color: white;
+input[type="text"] {
+    width: 80%;
+    padding: 0.75em;
     border: none;
+    border-radius: 8px;
     font-size: 1rem;
+    margin-bottom: 1em;
     font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    color: white;
-    text-align: right;
-    padding-right: 5px;
 }
 
-select option {
-    color: black;
+button {
+    padding: 0.6em 1.5em;
+    background-color: #1385b3;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 1.5em;
+    font-family: "Inter", sans-serif;
+}
+
+button:hover {
+    background-color: #096a91;
+}
+
+#definitionBox {
+    margin-top: 1em;
+}
+
+#definitionBox h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5em;
+}
+
+#definitionBox p {
+    font-size: 1.1rem;
+    line-height: 1.4;
 }

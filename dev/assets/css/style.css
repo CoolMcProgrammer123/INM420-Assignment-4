@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Put the card in a section */
+#weather {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh;
+
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: white;
+}
+
+/* Style the card itself */
+.weatherCard {
+    background-color: rgb(59, 59, 59);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    width: 500px;
+    border-radius: 1.5em;
+    margin: 2em;
+    box-shadow: 0 20px 50px 5px rgba(0, 0, 0, 0.274);
+}
+
+/* Put the items of the nav bar on the left and right */
+.navBar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+/* Text Styling */
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 1.6rem;
+}
+
+img {
+    width: 8em;
+}
+
+/* Styling for API div template */
+#weatherInfo {
+    display: flex;
+    flex-direction: column;
+    margin: 32px;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+/* Dropdown menu */
+select {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: white;
+    text-align: right;
+    padding-right: 5px;
+}
+
+select option {
+    color: black;
+}

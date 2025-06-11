@@ -1,62 +1,59 @@
-// API Key
-const apiKey = '7c7e36ef01d94161bc2222432252905';
+const apiKey = 'cd48236a-224e-4a07-99b5-090175021d1d';
 
-// Selecting Placeholder + Dropdown
-const placeholder = document.querySelector('#weatherInfo');
-const dropdown = document.querySelector('#locations');
+const searchBtn = document.getElementById('searchBtn');
+const wordInput = document.getElementById('wordInput');
 
-// When dropdown changes, get weather
-dropdown.addEventListener('change', () => {
-    const location = dropdown.value;
-    getCurrentWeather(location);
+const definitionBox = document.getElementById('definitionBox');
+
+searchBtn.addEventListener('click', () => {
+
+    // Clean up the text input (remove whitespaces)
+    const word = wordInput.value.trim();
+
+    // If there a word then search for it, if none then alert
+    if (word) {
+        fetchDefinition(word);
+    } else {
+        alert("Please enter a word.");
+    }
 });
 
-// On page load, get weather of default value
-getCurrentWeather(dropdown.value);
-
-
-async function getCurrentWeather(location) {
+// Function for getting definition
+async function fetchDefinition(word) {
     // API URL
-    const apiUrl = `http://api.weatherapi.com/v1/current.json?q="${location}"&key=${apiKey}`
-
+    const url = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${apiKey}`;
 
     // If error, then display error
     try {
-        // Get response from API
-        const apiRes = await fetch(apiUrl)
+        // Get repsonse from API
+        const res = await fetch(url);
 
-        // Parse response into JSON
-        const result = await apiRes.json();
+        // Parse response as JSON
+        const data = await res.json();
+        
+        // Log to see if API works
+        console.log('API response:', data);
 
-        // Testing if the API has an error
-        console.log('API response: ', result)
-
-        if (result.error) {
-            throw new Error(result.error.message);
+        // If API returns error then error
+        if (!data.length || !data[0].shortdef) {
+            throw new Error("No definition found.");
         }
-        
-        // Initializing variables for weather card
-        const city = result.location.name;
-        const country = result.location.country;
 
-        const currentTempInCelcius = result.current.temp_c;
+        // Initialize vars for placeholders
+        const firstDef = data[0].shortdef[0];
+        const partOfSpeech = data[0].fl;
 
-        const icon = result.current.condition.icon;
-        const conditionText = result.current.condition.text;
+        definitionBox.innerHTML = `
+            <h3>${word}</h3>
+            <p><em>${partOfSpeech}</em></p>
+            <p>${firstDef}</p>
+        `;
 
-        console.log(currentTempInCelcius)
-
-        // HTML Placeholder for API response
-        placeholder.innerHTML = `
-        <h3>${city}, ${country}</h3>
-        <img src="${icon}" alt="${conditionText}">
-        <h2>${currentTempInCelcius}°C</h2>
-        <p>${conditionText}</p>
-        
-    `
     } catch (error) {
-        // If there's an error, display popup
-        console.error(`Something's wrong... `, error);
-        alert(`Failed to fetch the weather...\n\n${error}`);
+        // If there's an error log in console
+        console.error("Fetch failed:", error);
+
+        // Also alert user
+        alert(`Failed to get definition:\n${error.message}`);
     }
 }

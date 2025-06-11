@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@3.0.0/reset.min.css" />
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <title>Weather App - Assignment 4</title>
+</head>
+
+<body>
+    <section id="weather">
+        <!-- Center Card -->
+        <div class="weatherCard">
+            <!-- Top of the card -->
+            <div class="navBar">
+                <h1>Weather App</h1>
+
+                <!-- Location Selector -->
+                <select id="locations">
+                    <option value="Toronto">Toronto</option>
+                    <option value="New York">New York</option>
+                    <option value="Dubai">Dubai</option>
+                    <option value="Manila">Manila</option>
+                    <option value="asdfasdf">(Force Error)</option>
+                </select>
+            </div>
+
+            <!-- All The Weather Info -->
+            <div id="weatherInfo">
+                Loading...
+            </div>
+        </div>
+    </section>
+
+    <!-- https://www.weatherapi.com/my/ -->
+
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
